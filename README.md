@@ -42,7 +42,7 @@ A modern, full-stack web application that uses AI to analyze and optimize resume
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/yourusername/resume-optimizer.git](https://github.com/yourusername/resume-optimizer.git)
+git clone [https://github.com/dev-vishwajeet-jadhav/resume-optimizer.git](https://github.com/dev-vishwajeet-jadhav/resume-optimizer.git)
 cd resume-optimizer
 
 After making these changes, run:
