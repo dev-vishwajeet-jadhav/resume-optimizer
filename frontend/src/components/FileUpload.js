@@ -7,6 +7,8 @@ import './FileUpload.css';
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
+const API_BASE = process.env.REACT_APP_API_BASE_URL || '';
+
 export default function FileUpload({ onTextExtracted }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -39,7 +41,7 @@ export default function FileUpload({ onTextExtracted }) {
       formData.append('file', file);
 
       try {
-        const response = await fetch('/api/extract', {
+        const response = await fetch(`${API_BASE}/api/extract`, {
           method: 'POST',
           body: formData,
         });

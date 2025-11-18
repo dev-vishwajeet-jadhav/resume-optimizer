@@ -12,6 +12,8 @@ function App() {
   const [jobTitle, setJobTitle] = useState('');
   const [error, setError] = useState(null);
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL || '';
+
   const handleSubmit = async (text) => {
     if (!jobTitle.trim()) {
       setError('Please enter a job title');
@@ -23,7 +25,7 @@ function App() {
     setResults(null);
 
     try {
-      const response = await fetch('/api/analyze', {
+      const response = await fetch(`${API_BASE}/api/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: text.trim(), jobTitle: jobTitle.trim() }),
