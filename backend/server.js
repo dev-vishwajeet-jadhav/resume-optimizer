@@ -174,21 +174,17 @@ Instructions:
         max_tokens: 4000,
       });
     } catch (err) {
-      if (err.message.includes("429")) {
-        console.log("DeepSeek rate limited → switching to Gemma...");
-        modelUsed = "google/gemma-2b-it:free";
-        completion = await safeRequest({
-          model: modelUsed,
-          messages: [
-            { role: "system", content: systemMessage },
-            { role: "user", content: userPrompt },
-          ],
-          temperature: 0.7,
-          max_tokens: 4000,
-        });
-      } else {
-        throw err;
-      }
+      console.error("AI provider error:", err.message || err);
+      return res.status(502).json({
+        message: "AI provider error. Please try again in a minute.",
+        detail: err.message,
+      });
+    }
+
+    if (!completion || !completion.choices || !completion.choices[0]?.message?.content) {
+      return res.status(500).json({
+        message: "Empty response from AI provider",
+      });
     }
 
     const responseText = completion.choices[0].message.content;
