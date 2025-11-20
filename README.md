@@ -1,6 +1,7 @@
 # 🚀 Resume Optimizer - AI-Powered ATS Resume Analysis
 
 A modern, full-stack web application that uses AI to analyze and optimize resumes for Applicant Tracking Systems (ATS). Built with React, Node.js, Express, and OpenRouter AI.
+Live link - https://dev-vishwajeet-jadhav.github.io/resume-optimizer/
 
 ![Resume Optimizer](https://img.shields.io/badge/React-19.2.0-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-green)
